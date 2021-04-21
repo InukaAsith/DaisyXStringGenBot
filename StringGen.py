@@ -1,5 +1,5 @@
 
-
+import dyrogram
 import asyncio
 from asyncio.exceptions import TimeoutError
 
@@ -11,7 +11,6 @@ from pyrogram.errors import (
     SessionPasswordNeeded,
 )
 
-from StringGen.dyrogram import devil as app
 
 
 @app.on_message(filters.command("genstr") & filters.private)
@@ -209,7 +208,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from filters import command, other_filters, other_filters2
 
 
-@Client.on_message(command("start") & other_filters2)
+@app.on_message(command("start") & other_filters2)
 async def start(_, message: Message):
     await message.reply_text(
         f"""🙃 Hi {message.from_user.first_name}!
